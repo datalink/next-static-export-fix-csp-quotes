@@ -1,0 +1,18 @@
+{
+  "name": "next-static-export-fix-csp-quotes",
+  "version": "0.0.1",
+  "description": "Fixes the incorrectly escaped quotes in the meta content security policy tag on next.js static exports",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "next-static-export-fix-csp-quotes": "cli.js"
+  },
+  "author": "Scott Davey",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
