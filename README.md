@@ -54,17 +54,11 @@ When building, you will see the following additional output:
 Scanning dirdctory ./out for html files
 Updating 404.html
 Fixed 8 occurrances
-Updating [groupId].html
+Updating page.html
 Fixed 8 occurrances
 Updating app.html
 Fixed 8 occurrances
 Updating index.html
-Fixed 8 occurrances
-Updating r.html
-Fixed 8 occurrances
-Updating system.html
-Fixed 8 occurrances
-Updating test.html
 Fixed 8 occurrances
 Done
 ```
