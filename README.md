@@ -32,7 +32,7 @@ replace them to `'` so that the content security can be parsed by browsers.
 # Installation
 
 ```sh
-npm install --save-dev git+ssh://git@github.com:datalink/next-static-export-fix-csp-quotes
+npm install --save-dev github:datalink/next-static-export-fix-csp-quotes
 ```
 
 # Usage
