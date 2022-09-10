@@ -2,13 +2,28 @@
 
 Fixes the incorrectly escaped quotes in the meta content security policy tag on next.js static exports.
 
-When building Next.JS builds a static export using `next export`, any content security policy added into `_document.ts` will be improperly escaped, leading this this:
+## The problem
+
+Next.JS builds a static export using `next export`. Next's static export feature does not support 
+the [Security Headers](https://nextjs.org/docs/advanced-features/security-headers) feature of Next, so the solution to 
+adding a content security policy is to write it in `_document.ts`.
+
+Unfortunately, due to React's automatic string escaping, any content security policy added into `_document.ts` will be 
+improperly escaped, leading this this:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27; &#x27;unsafe-eval&#x27;"/>
 ```
 
-This tool searches for html files in the `./out` directory of a next.js export, and fixes all occurrances of ` &#x27;` to replace them to `'` so that the content security can be parsed by browsers.
+This is due to a long-standing known issue in React:
+
+- https://github.com/facebook/react/issues/13838
+- https://github.com/vercel/next.js/issues/2006
+
+## The fix
+
+This tool searches for html files in the `./out` directory of a next.js export, and fixes all occurrances of ` &#x27;` to 
+replace them to `'` so that the content security can be parsed by browsers.
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval'"/>
@@ -17,7 +32,7 @@ This tool searches for html files in the `./out` directory of a next.js export, 
 # Installation
 
 ```sh
-npm install --save-dev next-static-export-fix-csp-quotes
+npm install --save-dev git+ssh://git@github.com:datalink/next-static-export-fix-csp-quotes
 ```
 
 # Usage
